@@ -1,0 +1,37 @@
+<div class="row gx-0">
+  <div class="col-md-9">
+
+    <h3 class="m-5 text-center">Ag-Grid</h3>
+ 
+      <ag-grid-angular
+          #agGrid
+          style="width: 60%; height: 500px;"
+          class="ag-theme-alpine mx-auto d-block"
+          [rowData]="rowData$ | async"
+          [columnDefs]="columnDefs"
+          [defaultColDef]="defaultColDef"
+          [rowSelection]="'multiple'"
+          [animateRows]="true"
+          (cellClicked)="onCellClick($event)"
+          >
+      </ag-grid-angular>
+
+
+  </div>
+
+  <div class="col-md-3">
+    <h3 class="m-5">Select manufactor</h3>
+    <select (change)="onHighight(make.value)" #make [(ngModel)]="selection" class="p-3 btn btn-secondary rounded mb-5">
+          <option [value]=""></option>
+          <option [value]="'Toyota'">Toyota</option>
+          <option [value]="'Ford'">Ford</option>
+          <option [value]="'Porsche'">Porsche</option>
+    </select>
+    <br/>
+    <button (click)="onClearSelection()" class="p-3 btn btn-primary rounded">Clear Selection</button>
+  </div>
+</div>
+
+
+
+
